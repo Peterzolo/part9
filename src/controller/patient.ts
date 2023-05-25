@@ -17,6 +17,23 @@ export const getPatients = async (
   }
 };
 
+export const getPatient = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
+  try {
+    const id = req.params.id;
+    const patient = await PatientModel.findById(id);
+
+    if (!patient) {
+      res.status(400).json("Could not find the patient");
+    }
+    res.json(patient);
+  } catch (error) {
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
 export const addPatient = async (
   req: Request,
   res: Response
@@ -31,6 +48,7 @@ export const addPatient = async (
       healthRating,
     };
 
+    console.log("GOT HERE", newPatient);
     const createdPatient: ICreatePatient = await PatientModel.create(
       newPatient
     );
