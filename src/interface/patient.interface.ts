@@ -1,4 +1,4 @@
-export interface Diagnosis {
+export interface IDiagnosis {
   code: string;
   name: string;
   latin?: string;
@@ -10,11 +10,10 @@ export enum Gender {
   Other = "other",
 }
 
-export interface Patient {
+export interface IPatient {
   id: string;
   name: string;
   occupation: string;
   gender: Gender;
-  ssn?: string;
-  dateOfBirth?: string;
+  healthRating: String;
 }
