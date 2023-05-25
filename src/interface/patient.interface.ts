@@ -15,6 +15,8 @@ export interface ICreatePatient {
   occupation: string;
   gender: Gender;
   healthRating: String;
+  dateOfBirth: string;
+  ssn: number;
 }
 export interface IPatient {
   id: string;
@@ -22,4 +24,6 @@ export interface IPatient {
   occupation: string;
   gender: Gender;
   healthRating: String;
+  dateOfBirth: string;
+  ssn: number;
 }
