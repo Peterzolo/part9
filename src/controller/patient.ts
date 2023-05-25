@@ -8,6 +8,9 @@ export const getPatients = async (
 ): Promise<void> => {
   try {
     const patients: IPatient[] = await PatientModel.find();
+    if (!patients.length) {
+      res.status(400).json("No patient found");
+    }
     res.json(patients);
   } catch (error) {
     res.status(500).json({ error: "Internal server error" });
