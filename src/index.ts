@@ -1,11 +1,13 @@
 import express from "express";
-import { CurrentUserRouter } from "./routes/currentUser";
 
 const app = express();
 
-app.use(CurrentUserRouter);
-
 const PORT = 5000;
+
+app.get("/ping", (_req, res) => {
+  console.log("someone pinged here");
+  res.send("pong");
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on Port ${PORT}`);
