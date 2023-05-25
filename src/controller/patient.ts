@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import PatientModel from "../model/Patient";
-import { IPatient } from "../interface/patient.interface";
+import { ICreatePatient, IPatient } from "../interface/patient.interface";
 
 export const getPatients = async (
   req: Request,
@@ -12,6 +12,30 @@ export const getPatients = async (
       res.status(400).json("No patient found");
     }
     res.json(patients);
+  } catch (error) {
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
+export const addPatient = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
+  try {
+    const { name, occupation, gender, healthRating } = req.body;
+
+    const newPatient: ICreatePatient = {
+      name,
+      occupation,
+      gender,
+      healthRating,
+    };
+
+    const createdPatient: ICreatePatient = await PatientModel.create(
+      newPatient
+    );
+
+    res.status(201).json(createdPatient);
   } catch (error) {
     res.status(500).json({ error: "Internal server error" });
   }
