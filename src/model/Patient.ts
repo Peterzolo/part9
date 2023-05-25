@@ -19,6 +19,14 @@ const PatientSchema: Schema<ICreatePatient> = new Schema<ICreatePatient>({
     type: String,
     required: true,
   },
+  dateOfBirth: {
+    type: String,
+    required: true,
+  },
+  ssn: {
+    type: String,
+    required: true,
+  },
 });
 
 const PatientModel = mongoose.model<ICreatePatient>("Patient", PatientSchema);

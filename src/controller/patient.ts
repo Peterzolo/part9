@@ -39,13 +39,16 @@ export const addPatient = async (
   res: Response
 ): Promise<void> => {
   try {
-    const { name, occupation, gender, healthRating } = req.body;
+    const { name, occupation, gender, healthRating, dateOfBirth, ssn } =
+      req.body;
 
     const newPatient: ICreatePatient = {
       name,
       occupation,
       gender,
       healthRating,
+      dateOfBirth,
+      ssn,
     };
 
     console.log("GOT HERE", newPatient);
