@@ -4,6 +4,7 @@ import patientRouter from "./routes/patient";
 import dotenv from "dotenv";
 import { databaseConnection } from "./config/database";
 import bmiRouter from "./bmi/routes/bmiRoute";
+import exerciseRouter from "./bmi/routes/exercise";
 
 dotenv.config();
 
@@ -24,6 +25,7 @@ app.get("/ping", (_req, res) => {
 
 app.use("/api", patientRouter);
 app.use("/api", bmiRouter);
+app.use("/api", exerciseRouter);
 
 app.listen(PORT, () => {
   console.log(`Server is running on Port ${PORT}`);
