@@ -14,7 +14,7 @@ export interface ICreatePatient {
   name: string;
   occupation: string;
   gender: Gender;
-  healthRating: String;
+  healthRating?: String;
   dateOfBirth: string;
   ssn: string;
 }

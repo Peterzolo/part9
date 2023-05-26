@@ -17,7 +17,6 @@ const PatientSchema: Schema<ICreatePatient> = new Schema<ICreatePatient>({
   },
   healthRating: {
     type: String,
-    required: true,
   },
   dateOfBirth: {
     type: String,
