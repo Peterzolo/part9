@@ -3,7 +3,7 @@ import PatientModel from "../model/Patient";
 import { ICreatePatient, IPatient } from "../interface/patient.interface";
 
 export const getPatients = async (
-  req: Request,
+  _req: Request,
   res: Response
 ): Promise<void> => {
   try {

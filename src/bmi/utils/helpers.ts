@@ -1,9 +1,6 @@
-interface IBodyMass {
-  height: number;
-  weight: number;
-}
+import { IBodyMass } from "../interface";
 
-function calculateBmi(bodyMass: IBodyMass): string {
+export const calculateBmi = (bodyMass: IBodyMass): string => {
   const heightInMeters = bodyMass.height / 100;
   const bmi = bodyMass.weight / (heightInMeters * heightInMeters);
 
@@ -16,12 +13,4 @@ function calculateBmi(bodyMass: IBodyMass): string {
   } else {
     return "Obese";
   }
-}
-
-const bodyMass: IBodyMass = {
-  height: 175,
-  weight: 68,
 };
-
-const bmiMessage = calculateBmi(bodyMass);
-console.log("BMI:", bmiMessage);

@@ -1,13 +1,29 @@
+// {
+//   "compilerOptions": {
+//     "module": "NodeNext",
+//     "moduleResolution": "nodenext",
+//     "target": "ES6",
+//     "sourceMap": true,
+//     "outDir": "dist",
+//     "rootDir": "src",
+//     "strict": true,
+//     "noImplicitReturns": true,
+//     "noImplicitAny": true
+//   }
+// }
+
 {
   "compilerOptions": {
-    "module": "NodeNext",
-    "moduleResolution": "nodenext",
-    "target": "ES6",
-    "sourceMap": true,
-    "outDir": "dist",
-    "rootDir": "src",
-    "strict": true,
+    "noImplicitAny": true,
     "noImplicitReturns": true,
-    "noImplicitAny": true
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "strictBindCallApply": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "esModuleInterop": true,
+    "declaration": true
   }
 }

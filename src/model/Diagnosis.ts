@@ -1,4 +1,4 @@
-import mongoose, { Schema, Document } from "mongoose";
+import mongoose, { Schema } from "mongoose";
 import { IDiagnosis } from "../interface/patient.interface";
 
 const DiagnisisSchema: Schema<IDiagnosis> = new Schema<IDiagnosis>({

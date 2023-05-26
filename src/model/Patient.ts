@@ -1,4 +1,4 @@
-import mongoose, { Schema, Document } from "mongoose";
+import mongoose, { Schema } from "mongoose";
 import { ICreatePatient } from "../interface/patient.interface";
 
 const PatientSchema: Schema<ICreatePatient> = new Schema<ICreatePatient>({
