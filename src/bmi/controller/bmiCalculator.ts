@@ -17,5 +17,11 @@ export const getBMI = (req: Request, res: Response) => {
 
   const bmiMessage = calculateBmi(bodyMass);
 
-  return res.status(200).json({ bmi: bmiMessage });
+  return res
+    .status(200)
+    .json({
+      weight: bodyMass.weight,
+      height: bodyMass.height,
+      bmi: bmiMessage,
+    });
 };
