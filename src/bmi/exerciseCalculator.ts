@@ -40,8 +40,7 @@ const calculateExercises = (
   };
 };
 
-// Example usage
-const exerciseHours = [3, 0, 2, 4.5, 0, 3, 1];
+const exerciseHours = [3, 4, 2, 4.5, 3, 3, 1];
 const targetHours = 2.5;
 const result = calculateExercises(exerciseHours, targetHours);
 console.log(result);
