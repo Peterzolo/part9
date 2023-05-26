@@ -1,22 +1,27 @@
-function calculateBmi(height: number, weight: number) {
-  const heightInMeters = height / 100;
-  const bmi = weight / (heightInMeters * heightInMeters);
-  let message;
-  if (bmi < 18.5) {
-    message = "Underweight";
-  } else if (bmi >= 18.5 && bmi < 25) {
-    message = "Normal weight";
-  } else if (bmi >= 25 && bmi < 30) {
-    message = "Overweight";
-  } else {
-    message = "Obese";
-  }
-
-  return message;
+interface IBodyMass {
+  height: number;
+  weight: number;
 }
 
-var height = 175;
-var weight = 68;
+function calculateBmi(bodyMass: IBodyMass): string {
+  const heightInMeters = bodyMass.height / 100;
+  const bmi = bodyMass.weight / (heightInMeters * heightInMeters);
 
-var bmiMessage = calculateBmi(height, weight);
-console.log("BMI: " + bmiMessage);
+  if (bmi < 18.5) {
+    return "Underweight";
+  } else if (bmi < 25) {
+    return "Healthy weight";
+  } else if (bmi < 30) {
+    return "Overweight";
+  } else {
+    return "Obese";
+  }
+}
+
+const bodyMass: IBodyMass = {
+  height: 175,
+  weight: 68,
+};
+
+const bmiMessage = calculateBmi(bodyMass);
+console.log("BMI:", bmiMessage);

@@ -21,7 +21,8 @@
   "scripts": {
     "tsc": "tsc",
     "dev": "ts-node-dev src/index.ts",
-    "lint": "eslint --ext .ts ."
+    "lint": "eslint --ext .ts .",
+    "bmi": "ts-node-dev src/bmi/bmiCalculator.ts"
   },
   "devDependencies": {
     "@types/cors": "^2.8.13"
