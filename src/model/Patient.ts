@@ -12,7 +12,7 @@ const PatientSchema: Schema<ICreatePatient> = new Schema<ICreatePatient>({
   },
   gender: {
     type: String,
-    enum: ["Male", "Female", "Other"],
+    enum: ["male", "female", "Other"],
     required: true,
   },
   healthRating: {
