@@ -28,10 +28,11 @@ export const getPatient = async (
 
     if (!patient) {
       res.status(400).json("Could not find the patient");
+    } else {
+      res.json(patient);
     }
-    res.json(patient);
   } catch (error) {
-    res.status(500).json({ error: "Internal server error" });
+    res.status(500).json({ error: error.message });
   }
 };
 
