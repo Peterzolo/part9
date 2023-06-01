@@ -27,7 +27,13 @@ const PatientSchema: Schema<IPatient> = new Schema<ICreatePatient>(
       type: String,
       required: true,
     },
-    entries: [],
+    entries: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Entry",
+        default: [],
+      },
+    ],
   },
   {
     toJSON: {
