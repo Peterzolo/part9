@@ -10,29 +10,23 @@ export enum Gender {
   Other = "other",
 }
 
-interface Entry {
+export interface Entry {
   description: string;
   creationDate: string;
   specialist: string;
   code: string;
 }
+
 export interface ICreatePatient {
   name: string;
   occupation: string;
   gender: Gender;
-  healthRating?: String;
+  healthRating?: string;
   dateOfBirth: string;
   ssn: string;
   entries?: Entry[];
 }
 
-export interface IPatient {
+export interface IPatient extends ICreatePatient {
   id: string;
-  name: string;
-  occupation: string;
-  gender: Gender;
-  healthRating: String;
-  dateOfBirth: string;
-  ssn: string;
-  entries?: Entry[];
 }

@@ -1,7 +1,7 @@
 import mongoose, { Schema } from "mongoose";
-import { ICreatePatient } from "../interface/patient.interface";
+import { ICreatePatient, IPatient } from "../interface/patient.interface";
 
-const PatientSchema: Schema<ICreatePatient> = new Schema<ICreatePatient>(
+const PatientSchema: Schema<IPatient> = new Schema<ICreatePatient>(
   {
     name: {
       type: String,
@@ -39,6 +39,6 @@ const PatientSchema: Schema<ICreatePatient> = new Schema<ICreatePatient>(
   }
 );
 
-const PatientModel = mongoose.model<ICreatePatient>("Patient", PatientSchema);
+const PatientModel = mongoose.model<IPatient>("Patient", PatientSchema);
 
 export default PatientModel;
