@@ -10,8 +10,9 @@ export const getPatients = async (
     const patients: IPatient[] = await PatientModel.find();
     if (!patients.length) {
       res.status(400).json("No patient found");
+    } else {
+      res.json(patients);
     }
-    res.json(patients);
   } catch (error) {
     res.status(500).json({ error: "Internal server error" });
   }
