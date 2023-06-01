@@ -23,13 +23,11 @@ const PatientSchema: Schema<ICreatePatient> = new Schema<ICreatePatient>(
       type: String,
       required: true,
     },
-    entrtries: {
-      type: Array,
-    },
     ssn: {
       type: String,
       required: true,
     },
+    entries: [],
   },
   {
     toJSON: {

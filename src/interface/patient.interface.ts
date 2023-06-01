@@ -16,7 +16,6 @@ interface Entry {
   specialist: string;
   code: string;
 }
-
 export interface ICreatePatient {
   name: string;
   occupation: string;
@@ -24,14 +23,16 @@ export interface ICreatePatient {
   healthRating?: String;
   dateOfBirth: string;
   ssn: string;
+  entries?: Entry[];
 }
+
 export interface IPatient {
   id: string;
   name: string;
-  ssn: string;
   occupation: string;
   gender: Gender;
-  dateOfBirth: string;
   healthRating: String;
-  entries: Entry[];
+  dateOfBirth: string;
+  ssn: string;
+  entries?: Entry[];
 }
