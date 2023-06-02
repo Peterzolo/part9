@@ -7,7 +7,7 @@ export const getPatients = async (
   res: Response
 ): Promise<void> => {
   try {
-    const patients: IPatient[] = await PatientModel.find();
+    const patients: IPatient[] = await PatientModel.find().populate("entries");
     if (!patients.length) {
       res.status(400).json("No patient found");
     } else {
@@ -24,7 +24,7 @@ export const getPatient = async (
 ): Promise<void> => {
   try {
     const id = req.params.id;
-    const patient = await PatientModel.findById(id);
+    const patient = await PatientModel.findById(id).populate("entries");
 
     if (!patient) {
       res.status(400).json("Could not find the patient");
@@ -54,7 +54,6 @@ export const addPatient = async (
     const createdPatient: ICreatePatient = await PatientModel.create(
       newPatient
     );
-    console.log("GOT HERE", createdPatient);
 
     res.status(201).json(createdPatient);
   } catch (error) {
