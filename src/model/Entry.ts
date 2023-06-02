@@ -9,6 +9,10 @@ const EntrySchema: Schema<EntryModel> = new Schema<EntryModel>(
       type: String,
       required: true,
     },
+    patientId: {
+      type: String,
+      required: true,
+    },
     type: {
       type: String,
       required: true,

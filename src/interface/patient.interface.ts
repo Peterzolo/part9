@@ -11,22 +11,23 @@ export enum Gender {
 }
 
 export enum HealthCheckRating {
-  "Healthy" = 0,
-  "LowRisk" = 1,
-  "HighRisk" = 2,
-  "CriticalRisk" = 3,
+  Healthy = 0,
+  LowRisk = 1,
+  HighRisk = 2,
+  CriticalRisk = 3,
 }
 
 export interface OccupationalHealthcareEntry {
-  data: string;
+  date: string;
   type: string;
   specialist: string;
   diagnoseCodes: string[];
   description: string;
-  discharge: {
-    data: string;
+  discharge?: {
+    date: string;
     criteria: string;
   };
+  patientId: string;
 }
 
 export interface ICreatePatient {
@@ -38,8 +39,6 @@ export interface ICreatePatient {
   ssn: string;
   entries?: OccupationalHealthcareEntry[];
 }
-
-interface HospitalEntry extends OccupationalHealthcareEntry {}
 
 export interface IPatient extends ICreatePatient {
   id: string;
