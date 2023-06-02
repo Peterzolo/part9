@@ -10,11 +10,23 @@ export enum Gender {
   Other = "other",
 }
 
-export interface Entry {
-  description: string;
-  creationDate: string;
+export enum HealthCheckRating {
+  "Healthy" = 0,
+  "LowRisk" = 1,
+  "HighRisk" = 2,
+  "CriticalRisk" = 3,
+}
+
+export interface OccupationalHealthcareEntry {
+  data: string;
+  type: string;
   specialist: string;
-  code: string;
+  diagnoseCodes: string[];
+  description: string;
+  discharge: {
+    data: string;
+    criteria: string;
+  };
 }
 
 export interface ICreatePatient {
@@ -24,8 +36,10 @@ export interface ICreatePatient {
   healthRating?: string;
   dateOfBirth: string;
   ssn: string;
-  entries?: Entry[];
+  entries?: OccupationalHealthcareEntry[];
 }
+
+interface HospitalEntry extends OccupationalHealthcareEntry {}
 
 export interface IPatient extends ICreatePatient {
   id: string;

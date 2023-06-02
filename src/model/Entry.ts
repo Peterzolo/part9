@@ -1,13 +1,15 @@
-import mongoose, { Schema } from "mongoose";
-import { Entry } from "../interface/patient.interface";
+import mongoose, { Schema, Document } from "mongoose";
+import { OccupationalHealthcareEntry } from "../interface/patient.interface";
 
-const EntrySchema: Schema<Entry> = new Schema<Entry>(
+interface EntryModel extends OccupationalHealthcareEntry, Document {}
+
+const EntrySchema: Schema<EntryModel> = new Schema<EntryModel>(
   {
-    description: {
+    date: {
       type: String,
       required: true,
     },
-    creationDate: {
+    type: {
       type: String,
       required: true,
     },
@@ -15,22 +17,26 @@ const EntrySchema: Schema<Entry> = new Schema<Entry>(
       type: String,
       required: true,
     },
-
-    code: {
+    diagnoseCodes: {
+      type: [String],
+      required: true,
+    },
+    description: {
       type: String,
       required: true,
     },
-  }
-  //   {
-  //     toJSON: {
-  //       transform: function (_doc, ret) {
-  //         delete ret.ssn;
-  //         return ret;
-  //       },
-  //     },
-  //   }
+    discharge: {
+      date: {
+        type: String,
+      },
+      criteria: {
+        type: String,
+      },
+    },
+  },
+  { timestamps: true }
 );
 
-const EntryModel = mongoose.model<Entry>("Entry", EntrySchema);
+const EntryModel = mongoose.model<EntryModel>("Entry", EntrySchema);
 
 export default EntryModel;
