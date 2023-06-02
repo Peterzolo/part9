@@ -51,10 +51,7 @@ export const getEntries = async (
   }
 };
 
-export const getPatient = async (
-  req: Request,
-  res: Response
-): Promise<void> => {
+export const getEntry = async (req: Request, res: Response): Promise<void> => {
   try {
     const id = req.params.id;
     const entry = await EntryModel.findById(id);
