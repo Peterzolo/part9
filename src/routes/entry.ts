@@ -1,10 +1,10 @@
 import express from "express";
-import { addEntry } from "../controller/entries";
+import { addEntry, getEntries, getEntry } from "../controller/entries";
 
 const entryRouter = express.Router();
 
 entryRouter.route("/entries/add").post(addEntry);
-entryRouter.route("/entries/").get(addEntry);
-entryRouter.route("/entries/:id").get(addEntry);
+entryRouter.route("/entries/").get(getEntries);
+entryRouter.route("/entries/:id").get(getEntry);
 
 export default entryRouter;

@@ -10,7 +10,8 @@ const EntrySchema: Schema<EntryModel> = new Schema<EntryModel>(
       required: true,
     },
     patientId: {
-      type: String,
+      type: Schema.Types.ObjectId,
+      ref: "Patient",
       required: true,
     },
     type: {

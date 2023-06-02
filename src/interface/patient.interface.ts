@@ -1,3 +1,5 @@
+import { Schema } from "mongoose";
+
 export interface IDiagnosis {
   code: string;
   name: string;
@@ -27,7 +29,7 @@ export interface OccupationalHealthcareEntry {
     date: string;
     criteria: string;
   };
-  patientId: string;
+  patientId: Schema.Types.ObjectId;
 }
 
 export interface ICreatePatient {
