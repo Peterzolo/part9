@@ -1,6 +1,11 @@
 import { Request, Response } from "express";
 import PatientModel from "../model/Patient";
-import { ICreatePatient, IPatient } from "../interface/patient.interface";
+import {
+  ICreatePatient,
+  IPatient,
+  OccupationalHealthcareEntry,
+} from "../interface/patient.interface";
+import EntryModel from "../model/Entry";
 
 export const getPatients = async (
   _req: Request,
@@ -66,19 +71,26 @@ export const addEntryToPatient = async (
   res: Response
 ): Promise<void> => {
   try {
-    const { patientId, entryId } = req.body;
+    const entryData: OccupationalHealthcareEntry = req.body;
+    const { id } = req.params;
 
-    const patient = await PatientModel.findByIdAndUpdate(
-      patientId,
-      { $push: { entries: entryId } },
-      { new: true }
-    );
+    const patient = await PatientModel.findById(id);
 
     if (!patient) {
-      res.status(400).json("Could not find the patient");
-    } else {
-      res.json(patient);
+      res.status(404).json({ error: "Patient not found" });
+      return;
     }
+
+    const newEntry = await EntryModel.create(entryData);
+
+    if (!patient.entries) {
+      patient.entries = [];
+    }
+
+    patient.entries.push(newEntry._id);
+    await patient.save();
+
+    res.status(201).json(newEntry);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

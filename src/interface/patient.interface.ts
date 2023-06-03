@@ -25,6 +25,7 @@ export interface OccupationalHealthcareEntry {
   specialist: string;
   diagnoseCodes: string[];
   description: string;
+  healthCheckRating: number;
   discharge?: {
     date: string;
     criteria: string;

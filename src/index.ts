@@ -6,6 +6,7 @@ import { databaseConnection } from "./config/database";
 import bmiRouter from "./bmi/routes/bmiRoute";
 import exerciseRouter from "./bmi/routes/exercise";
 import entryRouter from "./routes/entry";
+import diagnosisRouter from "./routes/diagnisis";
 
 dotenv.config();
 
@@ -24,6 +25,7 @@ app.get("/api/ping", (_req, res) => {
   res.send("pong");
 });
 
+app.use("/api", diagnosisRouter);
 app.use("/api", patientRouter);
 app.use("/api", bmiRouter);
 app.use("/api", exerciseRouter);

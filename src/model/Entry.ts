@@ -12,7 +12,6 @@ const EntrySchema: Schema<EntryModel> = new Schema<EntryModel>(
     patientId: {
       type: Schema.Types.ObjectId,
       ref: "Patient",
-      required: true,
     },
     type: {
       type: String,
@@ -29,6 +28,9 @@ const EntrySchema: Schema<EntryModel> = new Schema<EntryModel>(
     description: {
       type: String,
       required: true,
+    },
+    healthCheckRating: {
+      type: Number,
     },
     discharge: {
       date: {

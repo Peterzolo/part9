@@ -1,7 +1,7 @@
 import mongoose, { Schema } from "mongoose";
 import { IDiagnosis } from "../interface/patient.interface";
 
-const DiagnisisSchema: Schema<IDiagnosis> = new Schema<IDiagnosis>({
+const DiagnosisSchema: Schema<IDiagnosis> = new Schema<IDiagnosis>({
   code: {
     type: String,
     required: true,
@@ -15,6 +15,6 @@ const DiagnisisSchema: Schema<IDiagnosis> = new Schema<IDiagnosis>({
   },
 });
 
-const DiagnosisModel = mongoose.model<IDiagnosis>("Diagnosis", DiagnisisSchema);
+const DiagnosisModel = mongoose.model<IDiagnosis>("Diagnosis", DiagnosisSchema);
 
 export default DiagnosisModel;
